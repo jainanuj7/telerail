@@ -1,0 +1,25 @@
+{
+  "name": "telerail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jainanuj7/telerail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jainanuj7/telerail/issues"
+  },
+  "homepage": "https://github.com/jainanuj7/telerail#readme",
+  "dependencies": {
+    "railway": "^1.0.1-1",
+    "railway-api": "^2.1.0",
+    "request": "^2.88.0",
+    "telegraf": "^3.22.2"
+  }
+}
