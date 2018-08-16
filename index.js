@@ -1,7 +1,7 @@
 var request = require("request");
 const Telegraf = require('telegraf')
 
-const bot = new Telegraf('639473895:AAGlRQBMcxOmJXgELdS1Hx9zT154SAVzELk');
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => ctx.reply('Welcome! Type /pnr/<PNR NO.> to check PNR Status. Eg. /prn/1234567890'))
 
