@@ -1,5 +1,6 @@
 # telerail 🚂
 Telerail is a Telegram chatbot for checking PNR status of Indian Railways. More features coming soon!
+You can join at https://t.me/telerail_bot
 
 # Screenshots
 
