@@ -3,14 +3,14 @@ const Telegraf = require('telegraf')
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.start((ctx) => ctx.reply('Welcome! Type /pnr/<PNR NO.> to check PNR Status. Eg. /prn/1234567890'))
+bot.start((ctx) => ctx.reply('Welcome! Type /pnr/<PNR NO.> to check PNR Status. Eg. /pnr/1234567890'))
 
-bot.hears(/prn/i, (ctx) => {
-    var input_prn = ctx.match.input;
-    var parts = input_prn.split('/');
-    var prn_no = parts[parts.length - 1];
+bot.hears(/pnr/i, (ctx) => {
+    var input_pnr = ctx.match.input;
+    var parts = input_pnr.split('/');
+    var pnr_no = parts[parts.length - 1];
     request.get({
-        "url": "https://api.railwayapi.com/v2/pnr-status/pnr/"+prn_no+"/apikey/noccuw1hzo/",
+        "url": "https://api.railwayapi.com/v2/pnr-status/pnr/"+pnr_no+"/apikey/noccuw1hzo/",
     }, (error, response, body) => {
         if (error) {
             return console.log(error);
@@ -22,7 +22,7 @@ bot.hears(/prn/i, (ctx) => {
         }
         
         else
-            ctx.reply('Invalid PRN');
+            ctx.reply('Invalid PNR');
             
     })
 });
