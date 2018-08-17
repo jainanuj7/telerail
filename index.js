@@ -3,7 +3,7 @@ const Telegraf = require('telegraf')
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.start((ctx) => ctx.reply('Welcome! Type /pnr/<PNR NO.> to check PNR Status. Eg. /pnr/1234567890'))
+bot.start((ctx) => ctx.reply('Welcome! \nType /pnr/<PNR NO.> to check PNR Status. \nEg. /pnr/1234567890'))
 
 bot.hears(/pnr/i, (ctx) => {
     var input_pnr = ctx.match.input;
