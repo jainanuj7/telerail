@@ -10,18 +10,20 @@ bot.hears(/pnr/i, (ctx) => {
     var parts = input_pnr.split('/');
     var pnr_no = parts[parts.length - 1];
     request.get({
-        "url": "https://api.railwayapi.com/v2/pnr-status/pnr/"+pnr_no+"/apikey/noccuw1hzo/",
+        "url": "https://api.railwayapi.com/v2/pnr-status/pnr/" + pnr_no + "/apikey/noccuw1hzo/",
     }, (error, response, body) => {
         if (error) {
             ctx.reply('Invalid PNR');
         }
-        var objRes = JSON.parse(body);
-        if(objRes.passengers.length!=0) {
-            var current_status = objRes.passengers[0].current_status;
-            ctx.reply(current_status);
+        else {
+            var objRes = JSON.parse(body);
+            if (objRes.passengers.length != 0) {
+                var current_status = objRes.passengers[0].current_status;
+                ctx.reply(current_status);
+            }
         }
-            
-            
+
+
     })
 });
 
