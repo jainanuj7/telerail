@@ -1,5 +1,7 @@
 var request = require("request");
 const Telegraf = require('telegraf')
+var express = require('express');
+var app = express();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -29,3 +31,8 @@ bot.hears(/pnr/i, (ctx) => {
 
 
 bot.startPolling()
+
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
+});
