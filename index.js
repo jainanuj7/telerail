@@ -14,17 +14,13 @@ bot.hears(/pnr/i, (ctx) => {
     request.get({
         "url": "https://api.railwayapi.com/v2/pnr-status/pnr/" + pnr_no + "/apikey/noccuw1hzo/",
     }, (error, response, body) => {
-        if (error) {
+        var objRes = JSON.parse(body);
+        if (objRes.passengers.length != 0) {
+            var current_status = objRes.passengers[0].current_status;
+            ctx.reply(current_status);
+        }
+        else
             ctx.reply('Invalid PNR');
-        }
-        else {
-            var objRes = JSON.parse(body);
-            if (objRes.passengers.length != 0) {
-                var current_status = objRes.passengers[0].current_status;
-                ctx.reply(current_status);
-            }
-        }
-
 
     })
 });
@@ -33,6 +29,6 @@ bot.hears(/pnr/i, (ctx) => {
 bot.startPolling()
 
 var port = process.env.PORT || 3000;
-app.listen(port, "0.0.0.0", function() {
-console.log("Listening on Port 3000");
+app.listen(port, "0.0.0.0", function () {
+    console.log("Listening on Port 3000");
 });
